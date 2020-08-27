@@ -13,3 +13,6 @@ data_*/
 Properties/
 *.csproj
 *.sln
+
+# Rider generated files
+.idea/
