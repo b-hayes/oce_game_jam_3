@@ -7,6 +7,7 @@
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="BoxShape" id=3]
+extents = Vector3( 15, 1, 15 )
 
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 30, 2, 30 )
@@ -29,24 +30,42 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="RigidBody set to static" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51899, -3.05963, 0 )
-mode = 3
+[node name="Box2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.26, 12.9918, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody set to static"]
+[node name="CollisionShape" type="CollisionShape" parent="Box2"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="RigidBody set to static"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.06932, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="Box2"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Box3" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4695, 9.90284 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box3"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Box3"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Box4" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26818, 14.8902, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box4"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Box4"]
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 4 )
 material/0 = null
