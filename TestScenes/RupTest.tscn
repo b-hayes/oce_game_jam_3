@@ -1,7 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Materials/grass.tres" type="Material" id=1]
 [ext_resource path="res://HelloWorld.cs" type="Script" id=2]
+[ext_resource path="res://Materials/player.tres" type="Material" id=3]
+[ext_resource path="res://Materials/orange.tres" type="Material" id=4]
+[ext_resource path="res://Materials/yellow.tres" type="Material" id=5]
+[ext_resource path="res://Materials/green.tres" type="Material" id=6]
+[ext_resource path="res://Materials/blue.tres" type="Material" id=7]
+
+[sub_resource type="CapsuleShape" id=5]
+
+[sub_resource type="CapsuleMesh" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -15,52 +24,65 @@ size = Vector3( 30, 2, 30 )
 
 [node name="RupTest" type="Spatial"]
 
+[node name="Player" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.69265, 0 )
+mode = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+mesh = SubResource( 6 )
+material/0 = ExtResource( 3 )
+
+[node name="Box1" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.877012, 0.480468, 0, -0.480468, 0.877012, -0.453303, 12.9918, 0.553581 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box1"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Box1"]
+transform = Transform( 0.983682, -0.15779, -0.0864451, 0.15779, 0.987449, -0.0068762, 0.0864451, -0.00687626, 0.996233, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.951353, 0.308104, 0, -0.308104, 0.951353, 0, 9.03086, 15.1644 )
 
 [node name="Hello World" type="Spatial" parent="."]
 script = ExtResource( 2 )
 
-[node name="Box" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.68275, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box"]
-mesh = SubResource( 2 )
-material/0 = null
-
 [node name="Box2" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.26, 12.9918, 0 )
+transform = Transform( 1, 0, 0, 0, 0.877012, 0.480468, 0, -0.480468, 0.877012, 7.14436, 12.9918, -8.02801 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box2"]
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Box2"]
+transform = Transform( 0.983682, -0.15779, -0.0864451, 0.15779, 0.987449, -0.0068762, 0.0864451, -0.00687626, 0.996233, 0, 0, 0 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 7 )
 
 [node name="Box3" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4695, 9.90284 )
+transform = Transform( 0.684288, -0.303651, -0.662983, 0.565126, 0.795411, 0.218984, 0.460849, -0.524517, 0.715891, 0.0990734, 15.8867, 0.475103 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box3"]
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Box3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18455, 0 )
+transform = Transform( 1, -1.49012e-08, 2.98023e-08, -2.98023e-08, 1, 0, -2.98023e-08, 2.98023e-08, 1, 0, 0.184551, 0 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 4 )
 
 [node name="Box4" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26818, 14.8902, 0 )
+transform = Transform( 0.879408, -0.476069, 0, 0.402288, 0.743116, 0.534736, -0.254571, -0.470251, 0.845019, 7.64899, 9.08172, -6.91153 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box4"]
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Box4"]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
