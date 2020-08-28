@@ -10,6 +10,7 @@ namespace oce_game_jam_3._3rdPersonPlayer
 
         public string name = "Mr Bean";
 
+        [Export]
         public float lookSensitivity = 15.0f;
 
         // Called when the node enters the scene tree for the first time.
@@ -23,6 +24,7 @@ namespace oce_game_jam_3._3rdPersonPlayer
         {
             if (Input.IsActionPressed("forward"))
             {
+                Input.GetActionStrength("forward");
                 GD.Print("Move forward 👆");
             }
         }
