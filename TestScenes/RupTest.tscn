@@ -1,95 +1,97 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Materials/grass.tres" type="Material" id=1]
-[ext_resource path="res://HelloWorld.cs" type="Script" id=2]
 [ext_resource path="res://Materials/player.tres" type="Material" id=3]
 [ext_resource path="res://Materials/orange.tres" type="Material" id=4]
 [ext_resource path="res://Materials/yellow.tres" type="Material" id=5]
 [ext_resource path="res://Materials/green.tres" type="Material" id=6]
 [ext_resource path="res://Materials/blue.tres" type="Material" id=7]
+[ext_resource path="res://3rdPersonPlayer/Player.cs" type="Script" id=8]
 
-[sub_resource type="CapsuleShape" id=5]
-
-[sub_resource type="CapsuleMesh" id=6]
-
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="CubeMesh" id=2]
-
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 15, 1, 15 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 30, 2, 30 )
 
+[sub_resource type="CapsuleMesh" id=7]
+radius = 0.5
+
+[sub_resource type="CapsuleShape" id=8]
+radius = 0.5
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
 [node name="RupTest" type="Spatial"]
-
-[node name="Player" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.69265, 0 )
-mode = 2
-
-[node name="CollisionShape" type="CollisionShape" parent="Player"]
-shape = SubResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Player"]
-mesh = SubResource( 6 )
-material/0 = ExtResource( 3 )
-
-[node name="Box1" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.877012, 0.480468, 0, -0.480468, 0.877012, -0.453303, 12.9918, 0.553581 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box1"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box1"]
-transform = Transform( 0.983682, -0.15779, -0.0864451, 0.15779, 0.987449, -0.0068762, 0.0864451, -0.00687626, 0.996233, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 6 )
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.951353, 0.308104, 0, -0.308104, 0.951353, 0, 9.03086, 15.1644 )
-
-[node name="Hello World" type="Spatial" parent="."]
-script = ExtResource( 2 )
-
-[node name="Box2" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.877012, 0.480468, 0, -0.480468, 0.877012, 7.14436, 12.9918, -8.02801 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box2"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box2"]
-transform = Transform( 0.983682, -0.15779, -0.0864451, 0.15779, 0.987449, -0.0068762, 0.0864451, -0.00687626, 0.996233, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 7 )
-
-[node name="Box3" type="RigidBody" parent="."]
-transform = Transform( 0.684288, -0.303651, -0.662983, 0.565126, 0.795411, 0.218984, 0.460849, -0.524517, 0.715891, 0.0990734, 15.8867, 0.475103 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box3"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box3"]
-transform = Transform( 1, -1.49012e-08, 2.98023e-08, -2.98023e-08, 1, 0, -2.98023e-08, 2.98023e-08, 1, 0, 0.184551, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 4 )
-
-[node name="Box4" type="RigidBody" parent="."]
-transform = Transform( 0.879408, -0.476069, 0, 0.402288, 0.743116, 0.534736, -0.254571, -0.470251, 0.845019, 7.64899, 9.08172, -6.91153 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box4"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box4"]
-mesh = SubResource( 2 )
-material/0 = ExtResource( 5 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 4 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 1 )
+
+[node name="Player" type="KinematicBody" parent="."]
+script = ExtResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+mesh = SubResource( 7 )
+material/0 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+shape = SubResource( 8 )
+
+[node name="CameraOrbitPoint" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="Player/CameraOrbitPoint"]
+transform = Transform( -1, 3.55271e-15, -8.74228e-08, -7.57103e-08, 0.5, 0.866025, 4.37114e-08, 0.866025, -0.5, 0, 7.023, -6 )
+
+[node name="Boxes" type="Spatial" parent="."]
+
+[node name="Box1" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.879408, -0.476069, 0, 0.402288, 0.743116, 0.534736, -0.254571, -0.470251, 0.845019, 7.64899, 9.08172, -6.91153 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box1"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box1"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 5 )
+
+[node name="Box2" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.499474, -0.608231, 0.616912, -0.752697, 0.0478871, 0.656623, -0.428921, -0.792314, -0.433895, -6.08857, 8.68034, -1.44547 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box2"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box2"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 4 )
+
+[node name="Box3" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.541667, -0.793209, -0.278236, 0.801119, 0.386888, 0.456648, -0.254571, -0.470251, 0.845019, -2.7903, 7.1655, -6.91153 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box3"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box3"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 7 )
+
+[node name="Box4" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.591427, 0.326378, -0.737354, 0.189306, 0.832669, 0.520409, 0.783823, -0.447369, 0.430678, 6.75897, 7.1655, 7.3774 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box4"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box4"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 6 )
