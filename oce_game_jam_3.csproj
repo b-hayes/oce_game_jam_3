@@ -57,6 +57,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3rdPersonPlayer\Camera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="3rdPersonPlayer\Player.cs" />
   </ItemGroup>
