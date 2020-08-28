@@ -12,8 +12,8 @@ public class Camera : Spatial
     private float _camRotV = 0.0f;
     private Spatial _camV;
     private Spatial _camH;
-    const int maxV = 0;
-    const int minV = -75;
+    public int MaxV = 0;
+    public int MinV = -75;
 
 
     [Export]
@@ -44,8 +44,8 @@ public class Camera : Spatial
     {
         GD.Print("H: " + _camRotH + " V: " + _camRotV);
         //clamp
-        _camRotV = (_camRotV > maxV) ? maxV : _camRotV;
-        _camRotV = (_camRotV < minV) ? minV : _camRotV;
+        _camRotV = (_camRotV > MaxV) ? MaxV : _camRotV;
+        _camRotV = (_camRotV < MinV) ? MinV : _camRotV;
 
         _camH.RotationDegrees = new Vector3(_camH.RotationDegrees.x, _camRotH, _camH.RotationDegrees.z);
         _camV.RotationDegrees = new Vector3(_camRotV, _camV.RotationDegrees.y, _camV.RotationDegrees.z);
