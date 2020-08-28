@@ -10,6 +10,8 @@ namespace oce_game_jam_3._3rdPersonPlayer
 
         public string name = "Mr Bean";
 
+        public float lookSensitivity = 15.0f;
+
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
