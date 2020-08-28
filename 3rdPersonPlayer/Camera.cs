@@ -12,16 +12,19 @@ public class Camera : Spatial
     private float _camRotV = 0.0f;
     private Spatial _camV;
     private Spatial _camH;
+    const int maxV = 0;
+    const int minV = -75;
+
 
     [Export]
     public float LookSensitivity = 0.1f;
-    
-    
+
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         //Clip camera ignores the player so it doesnt collide with the players model and zoom in at his feet.
-        _camera = (ClippedCamera) GetNode("h-pivot/v-pivot/ClippedCamera");
+        _camera = (ClippedCamera)GetNode("h-pivot/v-pivot/ClippedCamera");
         _camV = (Spatial)GetNode("h-pivot/v-pivot");
         _camH = (Spatial)GetNode("h-pivot");
         _camera.AddException(GetParent());
@@ -39,17 +42,18 @@ public class Camera : Spatial
 
     public override void _PhysicsProcess(float delta)
     {
-        _camH.RotationDegrees = new Vector3(_camH.RotationDegrees.x, _camRotH, _camH.RotationDegrees.z);
-        const int maxV = -55;
+        GD.Print("H: " + _camRotH + " V: " + _camRotV);
+        //clamp
         _camRotV = (_camRotV > maxV) ? maxV : _camRotV;
-        const int minV = 85;
         _camRotV = (_camRotV < minV) ? minV : _camRotV;
-        _camV.RotationDegrees =  new Vector3(_camRotV, _camV.RotationDegrees.y, _camV.RotationDegrees.z);
+
+        _camH.RotationDegrees = new Vector3(_camH.RotationDegrees.x, _camRotH, _camH.RotationDegrees.z);
+        _camV.RotationDegrees = new Vector3(_camRotV, _camV.RotationDegrees.y, _camV.RotationDegrees.z);
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    //  public override void _Process(float delta)
+    //  {
+    //      
+    //  }
 }

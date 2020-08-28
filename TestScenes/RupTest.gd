@@ -16,6 +16,8 @@ func _ready():
 #	pass
 
 func _input(event):
-	if(event.is_pressed()):
-		if(event.scancode == KEY_ESCAPE):
-			get_tree().quit() 
+	if event.is_action_pressed("Quit"):
+		get_tree().quit()
+
+	if event.is_action_pressed("Toggle Fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
