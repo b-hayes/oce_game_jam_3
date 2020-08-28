@@ -29,6 +29,7 @@ public class Camera : Spatial
 
     public override void _Input(InputEvent @event)
     {
+        Input.SetMouseMode(Input.MouseMode.Captured);
         if (@event is InputEventMouseMotion mouseMotion)
         {
             _camRotH += mouseMotion.Relative.x * LookSensitivity;
@@ -39,8 +40,10 @@ public class Camera : Spatial
     public override void _PhysicsProcess(float delta)
     {
         _camH.RotationDegrees = new Vector3(_camH.RotationDegrees.x, _camRotH, _camH.RotationDegrees.z);
-        _camRotV = (_camRotV > 75) ? 75 : _camRotV;
-        _camRotV = (_camRotV < 55) ? 55 : _camRotV;
+        const int maxV = -55;
+        _camRotV = (_camRotV > maxV) ? maxV : _camRotV;
+        const int minV = 85;
+        _camRotV = (_camRotV < minV) ? minV : _camRotV;
         _camV.RotationDegrees =  new Vector3(_camRotV, _camV.RotationDegrees.y, _camV.RotationDegrees.z);
     }
 

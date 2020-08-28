@@ -58,6 +58,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80644, 0 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="Camera/h-pivot/v-pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.44304 )
+process_mode = 1
 
 [node name="RightShoulderJoint" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.602821, 1.23384, 0 )
