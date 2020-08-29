@@ -57,6 +57,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AIState.cs" />
     <Compile Include="AI\AIBase.cs" />
     <Compile Include="Enemies\BigBox.cs" />
     <Compile Include="3rdPersonPlayer\Camera.cs" />
