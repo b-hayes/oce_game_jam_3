@@ -30,7 +30,14 @@ func _physics_process(delta):
 	velocity.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left")) * 5
 	rotation_degrees.y = hRot * lookSensitivity
 	move_and_slide(velocity.rotated(Vector3(0, 1, 0), rotation.y))
-
+	
+	#Walking Animation
+	if velocity.z || velocity.x:
+		if	$AnimationPlayer.current_animation != "Walking":
+			$AnimationPlayer.play("Walking")
+	elif $AnimationPlayer.current_animation == "Walking":
+		$AnimationPlayer.stop()
+		
 func attack():
 	print("Attacking...")
 

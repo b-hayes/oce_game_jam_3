@@ -11,22 +11,11 @@ namespace oce_game_jam_3._3rdPersonPlayer
         [Export] private string name = "Mr Bean";
         [Export] private float health = 100.0f;
         [Export] private float moveSpeed = 5;
-        [Export(PropertyHint.None, "If specified Spatial node path exists the character will copy the nodes X rotation. Typically used for making the character match the camera focus." )]
-        private string cameraSwivelPath = "Camera/h-pivot";
-
-        private Spatial cameraSwivel = null;
-        
 
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
             ((Label) GetNode("HUD/Name")).Text = name;
-            GD.Print(cameraSwivelPath);
-            if (!cameraSwivelPath.Empty() && GetNode(cameraSwivelPath) != null)
-            {
-                cameraSwivel = (Spatial)GetNode(cameraSwivelPath);
-                GD.Print("Using camera rotation");
-            }
         }
 
         // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,5 +35,7 @@ namespace oce_game_jam_3._3rdPersonPlayer
                 RotationDegrees = new Vector3(0,cameraSwivel.RotationDegrees.y,0);
             }
         }
+        
+        
     }
 }
