@@ -8,6 +8,7 @@ extends KinematicBody
 export var playerName = "Mr Bean"
 export var health = 100
 export var lookSensitivity = 0.1
+export var walkingSpeed = 5
 
 var velocity = Vector3(0,0,0)
 var hRot = 0
@@ -17,6 +18,7 @@ var hRot = 0
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HUD/Name.text = playerName;
+	$AnimationPlayer.playback_speed  = walkingSpeed
 	
 func _process(delta):
 	pass
@@ -26,8 +28,8 @@ func _input(event):
 		hRot += -event.relative.x
 
 func _physics_process(delta):
-	velocity.z = (Input.get_action_strength("backward") - Input.get_action_strength("forward")) * 5
-	velocity.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left")) * 5
+	velocity.z = (Input.get_action_strength("backward") - Input.get_action_strength("forward")) * walkingSpeed
+	velocity.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left")) * walkingSpeed
 	rotation_degrees.y = hRot * lookSensitivity
 	move_and_slide(velocity.rotated(Vector3(0, 1, 0), rotation.y))
 	
@@ -40,4 +42,8 @@ func _physics_process(delta):
 		
 func attack():
 	print("Attacking...")
+	
+func setWalkingSpeed(speed):
+	$AnimationPlayer.playback_speed = speed
+	walkingSpeed = speed
 
