@@ -7,6 +7,7 @@ extends KinematicBody
 
 export var playerName = "Mr Bean"
 export var health = 100;
+export(Resource) var camera = null;
 
 var velocity = Vector3(0,0,0)
 

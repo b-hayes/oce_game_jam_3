@@ -12,8 +12,8 @@ public class Camera : Spatial
     private float _camRotV = 0.0f;
     private Spatial _camV;
     private Spatial _camH;
-    public int MaxV = 0;
-    public int MinV = -75;
+    [Export] public int MaxV = 0;
+    [Export] public int MinV = -75;
 
 
     [Export]
