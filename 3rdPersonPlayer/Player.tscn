@@ -2,7 +2,7 @@
 
 [ext_resource path="res://3rdPersonPlayer/PlayerBody.tres" type="Material" id=1]
 [ext_resource path="res://3rdPersonPlayer/Player.cs" type="Script" id=2]
-[ext_resource path="res://3rdPersonPlayer/Camera.cs" type="Script" id=3]
+[ext_resource path="res://3rdPersonPlayer/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://3rdPersonPlayer/PlayerSunnies.tres" type="Material" id=4]
 [ext_resource path="res://3rdPersonPlayer/PlayerMouth.tres" type="Material" id=5]
 [ext_resource path="res://3rdPersonPlayer/cigar.tres" type="Material" id=6]
@@ -47,18 +47,7 @@ material/0 = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
 shape = SubResource( 4 )
 
-[node name="Camera" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-script = ExtResource( 3 )
-
-[node name="h-pivot" type="Spatial" parent="Camera"]
-
-[node name="v-pivot" type="Spatial" parent="Camera/h-pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80644, 0 )
-
-[node name="ClippedCamera" type="ClippedCamera" parent="Camera/h-pivot/v-pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.44304 )
-process_mode = 1
+[node name="Camera" parent="." instance=ExtResource( 3 )]
 
 [node name="RightShoulderJoint" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.602821, 1.23384, 0 )
