@@ -59,3 +59,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.505978, 1.23384, 0 )
 transform = Transform( 0.940745, 0, -0.339116, 0.0998155, 0.955701, 0.276899, 0.324093, -0.294341, 0.89907, 0.138378, 1.3911, -0.609294 )
 mesh = SubResource( 5 )
 material/0 = null
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HUD"]
+margin_left = 55.84
+margin_right = 136.84
+margin_bottom = 14.0
+text = "Player Name"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
