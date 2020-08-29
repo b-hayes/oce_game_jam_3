@@ -32,6 +32,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+script = null
 
 [node name="Boxes" type="Spatial" parent="."]
 

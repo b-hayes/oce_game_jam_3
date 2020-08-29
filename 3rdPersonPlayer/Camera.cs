@@ -42,18 +42,20 @@ public class Camera : Spatial
 
     public override void _PhysicsProcess(float delta)
     {
-        GD.Print("H: " + _camRotH + " V: " + _camRotV);
-        //clamp
+
+    }
+
+
+    public override void _Process(float delta)
+    {
+        //NOTE: THis would normally be in _PhysicsProcess but I theorize it might be more reponsive here with high DPI mice.
+        //considering the camera clip will handle the physics related stuff anyway shouldnt cause any issues I dont think.
+        //If there are problems move to _PhysicsProcess() instead.
+        
+        //clamp and set camera angles.
         _camRotV = (_camRotV > MaxV) ? MaxV : _camRotV;
         _camRotV = (_camRotV < MinV) ? MinV : _camRotV;
-
         _camH.RotationDegrees = new Vector3(_camH.RotationDegrees.x, _camRotH, _camH.RotationDegrees.z);
         _camV.RotationDegrees = new Vector3(_camRotV, _camV.RotationDegrees.y, _camV.RotationDegrees.z);
     }
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
 }
