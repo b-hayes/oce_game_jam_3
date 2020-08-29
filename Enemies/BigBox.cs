@@ -13,12 +13,14 @@ namespace oce_game_jam_3.Enemies
         float gravity = (float) ProjectSettings.GetSetting("physics/3d/default_gravity");
         private Navigation _nav;
         private AI.AIBase ai = new AI.AIBase(false);
+        private Area detection;
 
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
+            //_nav = GetParent<Navigation>();
+            detection = (Area) GetNode("DetectionRadius");
             GD.Print("Enemy is ready");
-            _nav = GetParent<Navigation>();
         }
 
         public override void _PhysicsProcess(float delta)
@@ -34,10 +36,15 @@ namespace oce_game_jam_3.Enemies
             _velocity = _newvelocity;
         }
 
-         // Called every frame. 'delta' is the elapsed time since the previous frame.
-         public override void _Process(float delta)
-         {
-             
-         }
+        // Called every frame. 'delta' is the elapsed time since the previous frame.
+        public override void _Process(float delta)
+        {
+            bool isPlayerDetected = false;
+            float distanceToPlayer = 99.0f;
+
+            
+
+            ai.receiveObservations(delta, isPlayerDetected, distanceToPlayer);
+        }
     }
 }

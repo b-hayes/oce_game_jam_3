@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
+
+[sub_resource type="SphereShape" id=3]
 
 [node name="BigBox" type="KinematicBody"]
 
@@ -15,4 +17,8 @@ material/0 = null
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 shape = SubResource( 2 )
 
-[node name="Navigation" type="Navigation" parent="."]
+[node name="DetectionRadius" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="DetectionRadius"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+shape = SubResource( 3 )
