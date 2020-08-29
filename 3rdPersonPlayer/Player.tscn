@@ -1,11 +1,15 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://3rdPersonPlayer/PlayerBody.tres" type="Material" id=1]
+[ext_resource path="res://Player/PlayerBody.tres" type="Material" id=1]
 [ext_resource path="res://3rdPersonPlayer/Player.cs" type="Script" id=2]
 [ext_resource path="res://3rdPersonPlayer/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://3rdPersonPlayer/PlayerSunnies.tres" type="Material" id=4]
-[ext_resource path="res://3rdPersonPlayer/PlayerMouth.tres" type="Material" id=5]
-[ext_resource path="res://3rdPersonPlayer/cigar.tres" type="Material" id=6]
+[ext_resource path="res://Player/PlayerSunnies.tres" type="Material" id=4]
+[ext_resource path="res://Player/PlayerMouth.tres" type="Material" id=5]
+[ext_resource path="res://Player/cigar.tres" type="Material" id=6]
+
+
+
+
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.5, 0.2, 0.2 )
