@@ -40,6 +40,9 @@ func _physics_process(delta):
 	elif $AnimationPlayer.current_animation == "Walking":
 		$AnimationPlayer.stop()
 		
+	#TESTING something....
+	
+		
 func attack():
 	print("Attacking...")
 	
