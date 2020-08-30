@@ -90,6 +90,7 @@ transform = Transform( 1, 0, 0, 0, 0.367264, 0.930117, 0, -0.930117, 0.367264, 0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91258, 0 )
 
 [node name="Camera" type="Camera" parent="Player"]
 transform = Transform( 1, 0, 0, 0, 0.686567, 0.727066, 0, -0.727066, 0.686567, 0, 13.6654, 11.8464 )

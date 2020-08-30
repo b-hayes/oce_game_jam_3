@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="oce_game_jam_3"
-run/main_scene="res://TestScenes/RupTest.tscn"
 config/icon="res://icon.png"
 
 [display]
