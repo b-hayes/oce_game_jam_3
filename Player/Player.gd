@@ -28,9 +28,14 @@ func _input(event):
 		hRot += -event.relative.x
 
 func _physics_process(delta):
+	#Note that negetive Z is forwards. -X is left
 	var direction = Vector3()
 	direction.z = (Input.get_action_strength("backward") - Input.get_action_strength("forward"))
 	velocity.z = direction.z * walkingSpeed
+	if direction.z > 0:
+		#walking backwards is slower
+		velocity.z = velocity.z / 2
+		
 	direction.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left"))
 	velocity.x = direction.x * walkingSpeed
 	rotation_degrees.y = hRot * lookSensitivity
@@ -51,7 +56,7 @@ func _physics_process(delta):
 		$AnimationPlayer.stop()
 		
 	#Turn torso so strafe left and right doesnt look odd with walking animation
-	var torsoRotation = direction.x * 45
+	var torsoRotation = direction.x * (90 - (abs(direction.z) *45 ) )
 	$Body/Torso.rotation_degrees.z = torsoRotation
 		
 func attack():
