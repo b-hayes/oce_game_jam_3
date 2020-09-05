@@ -43,9 +43,13 @@ func _physics_process(delta):
 	velocity.y -= delta * gravity
 	#velocity = move_and_slide(velocity.rotated(Vector3(0, 1, 0), rotation.y))
 	
+	#TODO : SHould pehaps move back to using velocity + move and collide + multiplying movement by deltatime ????
+	#TODO : Max out total movement speed to 1, currently move faster while strafing and moving forwards. 
+	
 	#TESTing move and cilide instead
 	direction.y = - delta * gravity
 	var collisions = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
+	print(str("X: " , direction.x , " Z: " , direction.z , " Y: " , direction.y))
 	
 	#Walking Animation
 	$AnimationPlayer.playback_speed = max(abs(velocity.z), abs(velocity.x)) * 10
