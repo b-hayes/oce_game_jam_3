@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Health/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TestScenes/RupTest.gd" type="Script" id=3]
+[ext_resource path="res://Materials/grass.tres" type="Material" id=4]
+[ext_resource path="res://Materials/orange.tres" type="Material" id=5]
+[ext_resource path="res://Materials/blue.tres" type="Material" id=6]
+[ext_resource path="res://Materials/yellow.tres" type="Material" id=7]
+[ext_resource path="res://Materials/green.tres" type="Material" id=8]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 15, 1, 15 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 30, 2, 30 )
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[node name="RupTest" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="Boxes" type="Spatial" parent="."]
+
+[node name="Box1" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.879408, -0.476069, 0, 0.402288, 0.743116, 0.534736, -0.254571, -0.470251, 0.845019, 7.64899, 9.08172, -6.91153 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box1"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box1"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 7 )
+
+[node name="Box2" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.499474, -0.608231, 0.616912, -0.752697, 0.0478871, 0.656623, -0.428921, -0.792314, -0.433895, -6.08857, 8.68034, -1.44547 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box2"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box2"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 5 )
+
+[node name="Box3" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.541667, -0.793209, -0.278236, 0.801119, 0.386888, 0.456648, -0.254571, -0.470251, 0.845019, -2.7903, 7.1655, -6.91153 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box3"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box3"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 6 )
+
+[node name="Box4" type="RigidBody" parent="Boxes"]
+transform = Transform( 0.591427, 0.326378, -0.737354, 0.189306, 0.832669, 0.520409, 0.783823, -0.447369, 0.430678, 6.75897, 7.1655, 7.3774 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Boxes/Box4"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Boxes/Box4"]
+mesh = SubResource( 4 )
+material/0 = ExtResource( 8 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.367264, 0.930117, 0, -0.930117, 0.367264, 0, 17.0015, 14.1879 )
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91258, 0 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.398093, 0.917345, 0, -0.917345, 0.398093, 0, 14.0732, 3.83934 )
+projection = 1
+size = 15.0
+
+[node name="Health" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94895, 6.666 )
