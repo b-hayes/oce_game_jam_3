@@ -24,10 +24,14 @@ func _process(delta):
 	pass
 	
 func _input(event):
+	#Mouse look
 	if event is InputEventMouseMotion:
 		hRot += -event.relative.x
 
 func _physics_process(delta):
+	dash(delta) || walk(delta)
+	
+func walk(delta):
 	#Note that negetive Z is forwards. -X is left
 	var direction = Vector3()
 	direction.z = (Input.get_action_strength("backward") - Input.get_action_strength("forward"))
@@ -74,3 +78,7 @@ func setWalkingSpeed(speed):
 	$AnimationPlayer.playback_speed = speed
 	walkingSpeed = speed
 
+#launch the player by some dash ammount in the direction they are currently moving.
+func dash(delta):
+	#TODO: if dashing dash and return TRUE so that wlak is not fired.
+	pass
