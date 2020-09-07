@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://TestScenes/RupTest.gd" type="Script" id=2]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Materials/yellow.tres" type="Material" id=3]
 [ext_resource path="res://Materials/blue.tres" type="Material" id=4]
 [ext_resource path="res://Materials/green.tres" type="Material" id=5]
@@ -20,7 +20,6 @@ size = Vector3( 30, 2, 30 )
 [sub_resource type="CubeMesh" id=4]
 
 [node name="RupTest" type="Spatial"]
-script = ExtResource( 2 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
@@ -103,3 +102,5 @@ size = 15.0
 
 [node name="Health" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94895, 6.666 )
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
