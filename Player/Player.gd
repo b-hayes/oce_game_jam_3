@@ -8,7 +8,7 @@ extends KinematicBody
 export var playerName = "Mr Bean"
 export var health = 100
 export var lookSensitivity = 0.1
-export var walkingSpeed = 1
+export var walkingSpeed = 0.5
 
 var velocity = Vector3(0,0,0)
 var hRot = 0
@@ -53,7 +53,6 @@ func walk(delta):
 	#TESTing move and cilide instead
 	direction.y = - delta * gravity
 	var collisions = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
-	print(str("X: " , direction.x , " Z: " , direction.z , " Y: " , direction.y))
 	
 	#Walking Animation
 	$AnimationPlayer.playback_speed = max(abs(velocity.z), abs(velocity.x)) * 10
