@@ -10,7 +10,6 @@ export var health = 100
 export var lookSensitivity = 0.1
 export var walkingSpeed = 0.5
 
-var velocity = Vector3(0,0,0)
 var hRot = 0
 var gravity : int = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -35,27 +34,18 @@ func walk(delta):
 	#Note that negetive Z is forwards. -X is left
 	var direction = Vector3()
 	direction.z = (Input.get_action_strength("backward") - Input.get_action_strength("forward"))
-	velocity.z = direction.z * walkingSpeed
 	if direction.z > 0:
 		#walking backwards is slower
-		velocity.z = velocity.z / 2
+		direction.z = direction.z / 2
 		
 	direction.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left"))
-	velocity.x = direction.x * walkingSpeed
 	rotation_degrees.y = hRot * lookSensitivity
 	#Apply gravity
-	velocity.y -= delta * gravity
-	#velocity = move_and_slide(velocity.rotated(Vector3(0, 1, 0), rotation.y))
-	
-	#TODO : SHould pehaps move back to using velocity + move and collide + multiplying movement by deltatime ????
-	#TODO : Max out total movement speed to 1, currently move faster while strafing and moving forwards. 
-	
-	#TESTing move and cilide instead
 	direction.y = - delta * gravity
 	var collisions = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
 	
 	#Walking Animation
-	$AnimationPlayer.playback_speed = max(abs(velocity.z), abs(velocity.x)) * 10
+	$AnimationPlayer.playback_speed = max(abs(direction.z), abs(direction.x)) * 10
 	if direction.z || direction.x:
 		if	$AnimationPlayer.current_animation != "Walking":
 			$AnimationPlayer.play("Walking")
