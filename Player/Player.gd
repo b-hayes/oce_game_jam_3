@@ -40,8 +40,9 @@ func walk(delta):
 		
 	direction.x = (Input.get_action_strength("strafe right") - Input.get_action_strength("strafe left"))
 	rotation_degrees.y = hRot * lookSensitivity
+	
 	#Apply gravity
-	direction.y = - delta * gravity
+	direction.y -= delta * gravity
 	var collisions = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
 	
 	#Walking Animation
