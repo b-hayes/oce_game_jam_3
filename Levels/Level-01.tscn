@@ -36,7 +36,9 @@ material/0 = ExtResource( 4 )
 
 [node name="Boxes" type="Spatial" parent="."]
 
-[node name="Box1" type="RigidBody" parent="Boxes"]
+[node name="Box1" type="RigidBody" parent="Boxes" groups=[
+"Health",
+]]
 transform = Transform( 0.879408, -0.476069, 0, 0.402288, 0.743116, 0.534736, -0.254571, -0.470251, 0.845019, 7.64899, 9.08172, -6.91153 )
 __meta__ = {
 "_edit_group_": true
@@ -104,4 +106,3 @@ size = 15.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94895, 6.666 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
-pause_mode = 2

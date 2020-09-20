@@ -43,7 +43,11 @@ func walk(delta):
 	
 	#Apply gravity
 	direction.y -= delta * gravity
-	var collisions = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
+	var collision = move_and_collide(direction.rotated(Vector3(0, 1, 0), rotation.y))
+	if collision and collision.collider.is_in_group("Health"):
+		print(collision.collider.name)
+	
+	#print(bodies[0].get_name())
 	
 	#Walking Animation
 	$AnimationPlayer.playback_speed = max(abs(direction.z), abs(direction.x)) * 10

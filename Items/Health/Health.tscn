@@ -3,10 +3,10 @@
 [ext_resource path="res://Items/Health/Health.tres" type="Material" id=1]
 [ext_resource path="res://Items/Health/Health.gd" type="Script" id=2]
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.15, 0.5, 0.15 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Rotate"
 length = 2.0
 loop = true
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0.148571, 0 ), Vector3( 0, -0.0179387, 0 ), Vector3( 0, 0.148571, 0 ), Vector3( 0, -0.0179387, 0 ), Vector3( 0, 0.148571, 0 ) ]
 }
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="CapsuleMesh" id=3]
 material = ExtResource( 1 )
 radius = 0.2
 mid_height = 0.3
@@ -43,14 +43,14 @@ mid_height = 0.3
 [node name="RigidBody" type="RigidBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Rotate = SubResource( 3 )
+anims/Rotate = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.68493, 0.611222, 0.396584, 0, 0.544302, -0.838889, -0.728609, 0.57458, 0.372809, 0, 0.0504248, 0 )
-mesh = SubResource( 1 )
+mesh = SubResource( 3 )
 material/0 = null
 __meta__ = {
 "_editor_description_": ""
