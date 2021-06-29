@@ -1,10 +1,5 @@
 extends KinematicBody
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export var playerName = "Mr Bean"
 export var health = 100
 export var lookSensitivity = 0.1

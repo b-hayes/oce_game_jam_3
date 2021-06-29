@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/578141__davejf__melody-loop-mix-128-bpm.mp3-8a7fc2547795678e3feb744f5e7a219b.mp3str"
+
+[deps]
+
+source_file="res://Music/578141__davejf__melody-loop-mix-128-bpm.mp3"
+dest_files=[ "res://.import/578141__davejf__melody-loop-mix-128-bpm.mp3-8a7fc2547795678e3feb744f5e7a219b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
